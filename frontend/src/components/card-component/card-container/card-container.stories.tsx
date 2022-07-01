@@ -1,24 +1,29 @@
-import React, { useEffect, useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
-import Card from "./card-container";
+import { mainColors } from "../../../design-system";
 import CardContainer from "./card-container";
 export default {
   title: "Card/CardContainer",
   component: CardContainer,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
-    layout: "centered",
+    layout: "centered", 
+    backgrounds: {
+      default: `greyletscode`,
+      values: [
+        { name: 'greyletscode', value: `${mainColors.grey.letscode}`},
+        { name: 'white', value: '#fff'},
+      ],
+    }
   },
 } as ComponentMeta<typeof CardContainer>;
 
 const Template: ComponentStory<typeof CardContainer> = () => /*   const [isEditMode, setIsEditMode] = useState(false);*/ (
   <div style={{ width: "200px", height: "350px", textAlign: "center" }}>
-    <CardContainer justify="center" flexDirection="column" flex>
+    <CardContainer darkMode={true} justify="center" flexDirection="column" flex>
       Size of the card is according the parent
     </CardContainer>
   </div>
 );
 
-export const SimpleCardEditMode = Template.bind({});
+export const CardContainerSimple = Template.bind({});
 Template.args = {};

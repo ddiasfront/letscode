@@ -2,12 +2,20 @@ import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import CardEditMode from "./card-edit-mode";
+import { mainColors } from "../../../design-system";
 export default {
   title: "Card/CardEditMode",
   component: CardEditMode,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
-    layout: "centered",
+    layout: "centered", 
+    backgrounds: {
+      default: `greyletscode`,
+      values: [
+        { name: 'greyletscode', value: `${mainColors.grey.letscode}`},
+        { name: 'white', value: '#fff'},
+      ],
+    }
   },
 } as ComponentMeta<typeof CardEditMode>;
 

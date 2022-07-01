@@ -10,12 +10,16 @@ export const mainColors = {
         light: '#f3f3f3',
         middle: '#E9E9E9',
         heavy: '#DADADA',
-        letscode: '#404044'
+        letscode: '#37373c',
+        letscodelight: "#525257",
+        letscodesutile: "#606060"
     },
     yellow: {
-        letscode: '#f5b324'
+        letscode: '#f5b324',
+        letscodehighlight: '#ffe319'
     },
     shadows: {
-        simple: '#e9e9e9'
+        simple: '#e9e9e9',
+        darkMode: '#1a1a1a'
     }
 }
