@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import CardEditMode from "./card-edit-mode";
 import { mainColors } from "../../../design-system";
 export default {
-  title: "Card/CardEditMode",
+  title: "Card/CardNewMode",
   component: CardEditMode,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
@@ -26,5 +26,12 @@ const Template: ComponentStory<typeof CardEditMode> = (args) => {
   return <CardEditMode {...args} setIsEditMode={() => setIsEditMode(!isEditMode)} />;
 };
 
-export const SimpleCardEditMode = Template.bind({});
+const TemplateNew: ComponentStory<typeof CardEditMode> = (args) => {
+
+  const [isEditMode, setIsEditMode] = useState(false);
+
+  return <CardEditMode {...args} newMode setIsEditMode={() => setIsEditMode(!isEditMode)} />;
+};
+
+export const SimpleCardNewMode = TemplateNew.bind({});
 Template.args = {};

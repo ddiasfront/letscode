@@ -4,6 +4,7 @@ export interface IInputStyles {
 }
 
 export interface IInputModel extends IInputStyles {
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void,
+    onBlur?: (e: ChangeEvent<HTMLInputElement>) => void,
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void,
     placeholder?: string
 }

@@ -20,7 +20,7 @@ export default {
   },
 } as ComponentMeta<typeof TextAreaComponent>;
 
-const Template: ComponentStory<typeof TextAreaComponent> = (args) => <div><TextAreaComponent placeholder={"Content"} /></div>;
+const Template: ComponentStory<typeof TextAreaComponent> = (args) => <div><TextAreaComponent onBlur={()=> {}} placeholder={"Content"} /></div>;
 
 export const TextArea = Template.bind({});
 

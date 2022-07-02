@@ -1,10 +1,10 @@
 import { ICardComponentModels } from "../components/card-component/card-component-models";
 
-export type ICardsContextModel = {
+export interface ICardsContextModel {
     cards: ICardComponentModels[];
-    saveCard: (card: ICardComponentModels) => void;
-    updateCard: (card: ICardComponentModels) => void;
-    deleteCard: (card: ICardComponentModels) => void;
-    setCards: (cards: ICardComponentModels[]) => void;
+    saveCard?: (card: ICardComponentModels) => void;
+    updateCard?: (card: ICardComponentModels) => void;
+    deleteCard?: (id: string) => void;
+    setCards?: (cards: ICardComponentModels[]) => void;
   };
   

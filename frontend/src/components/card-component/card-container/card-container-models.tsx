@@ -2,7 +2,6 @@ export interface ICardContainerStyles {
     flex?: boolean;
     flexDirection?: 'column' |'row',
     justify?: string
-    
 }
 
 export interface ICardContainerModel extends ICardContainerStyles {

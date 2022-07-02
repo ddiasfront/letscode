@@ -17,7 +17,7 @@ export default {
   },
 } as ComponentMeta<typeof CardContainer>;
 
-const Template: ComponentStory<typeof CardContainer> = () => /*   const [isEditMode, setIsEditMode] = useState(false);*/ (
+const Template: ComponentStory<typeof CardContainer> = () => (
   <div style={{ width: "200px", height: "350px", textAlign: "center" }}>
     <CardContainer darkMode={true} justify="center" flexDirection="column" flex>
       Size of the card is according the parent

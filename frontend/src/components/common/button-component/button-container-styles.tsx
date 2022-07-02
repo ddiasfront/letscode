@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mainColors } from "../../../design-system";
+import { borderRadius, mainColors } from "../../../design-system";
 
 export const StyledButtonContainer = styled.div`
   cursor: pointer;
@@ -8,7 +8,7 @@ export const StyledButtonContainer = styled.div`
   background-color: ${mainColors.yellow.letscode};
   padding: 10px;
   display: flex;
-  border-radius: 6px;
+  border-radius: ${borderRadius.sm};
   color: ${mainColors.grey.letscode};
   font-weight: 200;
   font-size: 12px;

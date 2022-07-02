@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@storybook/addon-backgrounds": "^6.5.9",
+    "axios": "^0.27.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
@@ -36,6 +37,7 @@
     "jest": "^28.1.2",
     "prop-types": "^15.8.1",
     "react-testing-library": "^8.0.1",
+    "storybook-react-context": "^0.6.0",
     "webpack": "^5.73.0"
   },
   "scripts": {
@@ -54,10 +56,13 @@
     "overrides": [
       {
         "files": [
+          "**/*",
           "**/*.stories.*"
         ],
         "rules": {
-          "import/no-anonymous-default-export": "off"
+          "import/no-anonymous-default-export": "off",
+          "no-unused-expressions": "off",
+          "@typescript-eslint/no-unused-expressions": "off"
         }
       }
     ]

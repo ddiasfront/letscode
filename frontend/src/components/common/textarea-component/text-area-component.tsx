@@ -3,8 +3,8 @@ import { StyledTextArea } from "./text-area-styles";
 
 
 //MARKDOWN
-const TextAreaComponent = ({placeholder}: ITextAreaModels) => {
-  return <StyledTextArea placeholder={placeholder} />;
+const TextAreaComponent = ({placeholder, onBlur}: ITextAreaModels) => {
+  return <StyledTextArea onBlur={(e) => onBlur(e.target.value)} placeholder={placeholder}/>;
 };
 
 export default TextAreaComponent;

@@ -2,14 +2,6 @@ import React from "react";
 
 import { GlobalStyle } from "../src/global-styles";
 
-// export const decorators = [
-//   (Story) => (
-//     <>
-//       <GlobalStyle />
-//       <Story />
-//     </>
-//   ),
-// ];
 const withGlobalStyles = (Story, context) => {
   return (
     <>
