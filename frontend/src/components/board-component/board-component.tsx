@@ -98,7 +98,7 @@ export const BoardComponent = () => {
 
   return (
     <>
-  { alertIsOn && <AlertComponent>
+  { alertIsOn && alertMessage && <AlertComponent>
       {alertMessage}
     </AlertComponent>}
       <BoardComponentContainer>
