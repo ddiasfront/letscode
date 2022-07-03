@@ -19,6 +19,6 @@ Caso não tenha o docker
 ### 5 - APOS INSTALAR RODE O COMANDO NPM RUN START
 ### 6 - PARA RODAR O STORYBOOK RODE O COMANDO NPM RUN STORYBOOK
 
-Qualquer dúvida estou a disposição, podem me ligar abaixo:
+Qualquer dúvida estou a disposição, por favor, entre em contato.
 
 Obrigado.
