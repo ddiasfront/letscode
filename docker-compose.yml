@@ -12,6 +12,19 @@ services:
         - ./frontend/:/app
         ports:
         - 3000:3000
+
+    storybook:
+        stdin_open: true
+        environment:
+        - CHOKIDAR_USEPOLLING=true
+        build:
+            dockerfile: Dockerfile.storybook
+            context: ./frontend
+        volumes:
+        - /app/node_modules
+        - ./frontend/:/app
+        ports:
+        - 6006:6006
     api:
         build:
             dockerfile: Dockerfile
