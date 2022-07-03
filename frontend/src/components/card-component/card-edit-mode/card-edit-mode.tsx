@@ -9,28 +9,65 @@ import { StyledButtonContainer } from "../../common/button-component/button-cont
 import { CardsContext } from "../../../contexts/cards-context";
 import { ICardsContextModel } from "../../../contexts/cards-context-models";
 import { useCardPost } from "../../hooks/use-cardpost-hook";
+import { usePutCards } from "../../hooks/use-cardput-hook";
+import { ICardComponentModelsBR } from "../card-component-models";
 
-const CardEditMode = ({ newMode, title, content, list }: ICardEditModeModel) => {
+const CardEditMode = ({ newMode, list, id, setIsEditMode }: ICardEditModeModel) => {
 
-  const { cards, saveCard, updateCard, deleteCard } : ICardsContextModel = useContext(CardsContext);
+  const { saveCard, updateCard, dispatchAlertMessageAndClear } : ICardsContextModel = useContext(CardsContext);
   
   const { cardPosted, errorCardPosted, cardPost} = useCardPost();
+  
+  const { putCard, putCardResponse, putCardError } = usePutCards();
 
   const [cardTitle, setCardTitle] = useState("");
   const [cardDescription, setCardDescription] = useState("");
-  
-  const cardPostHandler = () => {
-    if(title&&content&&list) return cardPost(title, content, 'ToDo');
+
+
+  //SAVE CARD MODIFICATIONS HANDLER
+  const cardEditHandler = () => {
+    if(id && list && cardDescription.length > 2 && cardTitle.length > 2 ) {
+      const editedCard: ICardComponentModelsBR = {
+        titulo: cardTitle,
+        conteudo: cardDescription,
+        id: id,
+        lista: list
+      }
+      putCard(editedCard);
+    }
   }
+  //CARD MODIFICATION SUCCESSFULL UPDATE CONTEXT 
+  useEffect(() => {
+    if(updateCard && putCardResponse ) {
+      updateCard(putCardResponse)
+      setIsEditMode()
+    } 
+  }, [putCardResponse])
+
+  //WATCH PUT ERROR
+  useEffect(() => {
+    if(dispatchAlertMessageAndClear && putCardError) {
+      dispatchAlertMessageAndClear("There was an error when trying to save the modifications, please contact support")
+    }
+  }, [putCardError])
+  
+
+  //HANDLER THAT ADDS NEW CARDS TO THE API
   const newCardPostHandler = () => {
+    //HOOK METHOD WICH CALLS THE API ADD
     cardPost(cardTitle, cardDescription, 'ToDo');
   }
 
+  //CHECK IF THE CARD HAS BEEN SUCCESSFULLY ADDED, GET THE RETURN AND SET BACK INTO LIST
   useEffect(() => {
     if(cardPosted && saveCard) saveCard(cardPosted)
   }, [cardPosted])
 
-  //ADD NEW CARD FOOTER
+  useEffect(() => {
+    if(errorCardPosted && dispatchAlertMessageAndClear) dispatchAlertMessageAndClear('There was an error when trying to add your card, please contact support')
+  },[errorCardPosted])
+
+  //ADD NEW CARD FOOTER COMPONENT
   const newFooter = () => (
     <StyledButtonContainer onClick={() => {
       newCardPostHandler();
@@ -39,15 +76,15 @@ const CardEditMode = ({ newMode, title, content, list }: ICardEditModeModel) => 
       <VscAdd size={"1.2em"} style={{ paddingLeft: "5px" }} />
     </StyledButtonContainer>
   );
-  //EDIT CARD FOOTER
+  //EDIT CARD FOOTER COMPONENT
   const editFooter = () => (
     <>
-      <StyledButtonContainer onClick={() => {}}>
+      <StyledButtonContainer onClick={() => setIsEditMode()}>
         Discard
         <VscCircleSlash size={"1.2em"} style={{ paddingLeft: "5px" }} />
       </StyledButtonContainer>
       <StyledButtonContainer onClick={() =>  {
-       cardPostHandler();
+       cardEditHandler();
       }}>
         Save <VscSave size={"1.2em"} style={{ paddingLeft: "5px" }} />
       </StyledButtonContainer>

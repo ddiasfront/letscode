@@ -14,6 +14,7 @@ body {
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
   font-weight: 400;
+
 `;
  
 export {GlobalStyle};

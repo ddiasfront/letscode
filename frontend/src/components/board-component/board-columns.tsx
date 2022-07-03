@@ -10,7 +10,8 @@ const StyledColumn = styled(StyledCardContainer)`
   flex-direction: column;
   border: 1px solid transparent;
   box-shadow: none;
-  background-color: ${mainColors.grey.letscode}
+  background-color: ${mainColors.grey.letscode};
+  align-items: center;
 `;
 
 declare interface IBoardColumnModel {
