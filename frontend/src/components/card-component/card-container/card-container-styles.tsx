@@ -4,8 +4,8 @@ import { ICardContainerModel } from "./card-container-models";
 
 const StyledCardContainer = styled.div<ICardContainerModel>`
     color: ${mainColors.white.notpurewhite};
-    padding: 15px;
-    font-size: 14px;
+    padding: 20px 20px 9px 20px;
+    font-size: 12px;
     margin: 2px;
     background-color: #1a1a1a;
     transition: all 0.5s;   
@@ -23,12 +23,18 @@ const StyledCardContainer = styled.div<ICardContainerModel>`
         margin: 5px 0 5px 0;
     }
     h3 {
-        font-size: 18px;
+        font-size: 16px;
         margin: 0 0 10px 0;
         font-weight: 200;
         color: ${mainColors.yellow.letscode}
     }
     box-sizing:border-box;
+    a {
+        color: ${mainColors.yellow.letscode};
+        &:hover {
+            color : ${mainColors.yellow.letscodehighlight}
+        }
+    }
 `;
 
 export { StyledCardContainer };

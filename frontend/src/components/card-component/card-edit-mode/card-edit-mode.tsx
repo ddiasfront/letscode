@@ -11,8 +11,9 @@ import { ICardsContextModel } from "../../../contexts/cards-context-models";
 import { useCardPost } from "../../hooks/use-cardpost-hook";
 import { usePutCards } from "../../hooks/use-cardput-hook";
 import { ICardComponentModelsBR } from "../card-component-models";
+import { cardSize } from "../../../design-system";
 
-const CardEditMode = ({ newMode, list, id, setIsEditMode }: ICardEditModeModel) => {
+const CardEditMode = ({ newMode, list, id, setIsEditMode, title, content }: ICardEditModeModel) => {
 
   const { saveCard, updateCard, dispatchAlertMessageAndClear } : ICardsContextModel = useContext(CardsContext);
   
@@ -26,10 +27,10 @@ const CardEditMode = ({ newMode, list, id, setIsEditMode }: ICardEditModeModel) 
 
   //SAVE CARD MODIFICATIONS HANDLER
   const cardEditHandler = () => {
-    if(id && list && cardDescription.length > 2 && cardTitle.length > 2 ) {
+    if(id && list) {
       const editedCard: ICardComponentModelsBR = {
-        titulo: cardTitle,
-        conteudo: cardDescription,
+        titulo: cardTitle !== "" ? cardTitle : title,
+        conteudo: cardDescription !== "" ?  cardDescription : content,
         id: id,
         lista: list
       }
@@ -55,7 +56,7 @@ const CardEditMode = ({ newMode, list, id, setIsEditMode }: ICardEditModeModel) 
   //HANDLER THAT ADDS NEW CARDS TO THE API
   const newCardPostHandler = () => {
     //HOOK METHOD WICH CALLS THE API ADD
-    cardPost(cardTitle, cardDescription, 'ToDo');
+    if(cardTitle.length > 2 && cardDescription.length > 2)cardPost(cardTitle, cardDescription, 'ToDo');
   }
 
   //CHECK IF THE CARD HAS BEEN SUCCESSFULLY ADDED, GET THE RETURN AND SET BACK INTO LIST
@@ -92,10 +93,11 @@ const CardEditMode = ({ newMode, list, id, setIsEditMode }: ICardEditModeModel) 
   );
 
   return (
-    <div style={{ width: "16em", height: "16em" }}>
+    <div style={{ width: `${cardSize.defaultWidth}`, height: `${cardSize.defaultHeight}` }}>
       <CardContainer flex flexDirection="column">
         <div>
           <InputComponent
+            value={title}
             placeholder={"Title"}
             onBlur={(e) => {
               setCardTitle(e.target.value);
@@ -106,6 +108,7 @@ const CardEditMode = ({ newMode, list, id, setIsEditMode }: ICardEditModeModel) 
           <TextAreaComponent
             onBlur={setCardDescription}
             placeholder={"Content"}
+            value={content}
           />
         </div>
         <StyledCardFooterContainer>

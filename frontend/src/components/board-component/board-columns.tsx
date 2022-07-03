@@ -19,7 +19,7 @@ declare interface IBoardColumnModel {
     children?: JSX.Element[] | string
 }
 
-const BoardColumn: React.FC<any> = ({cards, children}) => {
+const BoardColumn: React.FC<any> = ({children}) => {
     return(<StyledColumn>{children}</StyledColumn>)
 };
 

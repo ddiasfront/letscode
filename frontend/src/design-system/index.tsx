@@ -5,6 +5,11 @@ export const borderRadius = {
     full: '70px'
 }
 
+export const cardSize = {
+    defaultHeight: "20em",
+    defaultWidth: "25em"
+}
+
 export const mainColors = {
     grey: {
         light: '#f3f3f3',

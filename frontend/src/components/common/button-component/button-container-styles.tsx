@@ -6,7 +6,7 @@ export const StyledButtonContainer = styled.div`
   transition: all 0.5s;
   margin-top: 2px;
   background-color: ${mainColors.yellow.letscode};
-  padding: 10px;
+  padding: 6px;
   display: flex;
   border-radius: ${borderRadius.sm};
   color: ${mainColors.grey.letscode};

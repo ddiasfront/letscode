@@ -15,6 +15,7 @@ export interface Props  {
 }
 
 export const ListButtons = styled(StyledButtonContainer)<Props>`
+padding: 10px;
 transition: all 0.2s;
 border-radius: 10px;
 position: relative;

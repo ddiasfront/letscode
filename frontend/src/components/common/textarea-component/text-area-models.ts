@@ -4,4 +4,5 @@ export interface ITextAreaModels {
     placeholder?: string;
     onBlur: (value: any) => void,
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void,
+    value?: any
 }

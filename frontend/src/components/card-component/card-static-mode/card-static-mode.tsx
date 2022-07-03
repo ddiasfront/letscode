@@ -7,6 +7,10 @@ import { ICardStaticModeModel } from "./card-static-mode-models";
 import { CardsContext } from "../../../contexts/cards-context";
 import { ICardsContextModel } from "../../../contexts/cards-context-models";
 import { useDeleteCards } from "../../hooks/use-carddelete-hook";
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { cardSize } from "../../../design-system";
+
 
 const CardStaticMode = ({ setIsEditMode, id, title, content, list }: ICardStaticModeModel) => {
 
@@ -27,12 +31,12 @@ const CardStaticMode = ({ setIsEditMode, id, title, content, list }: ICardStatic
   },[cardsDeleteError])
 
   return (
-    <div style={{ width: "16em", height: "16em" }}>
+    <div style={{ width: `${cardSize.defaultWidth}`, height: `${cardSize.defaultHeight}` }}>
       <CardContainer flex flexDirection="column" darkMode>
         <div style={{overflowY: 'scroll', maxHeight: '100%', flex:2}}>
             <h3>{title}</h3>
             <div>
-                {content}
+            {content &&<ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />}
             </div>
         </div>
         <StyledCardFooterContainer>
