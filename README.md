@@ -21,6 +21,4 @@ Caso não tenha o docker
 
 Qualquer dúvida estou a disposição, podem me ligar abaixo:
 
-# 119555574412
-
 Obrigado.
