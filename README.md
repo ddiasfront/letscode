@@ -12,12 +12,12 @@ Basta rodar o comando docker-compose up no diretório raiz
 
 Caso não tenha o docker
 
-1 - ENTRE NA PASTA BACK
-2 - Rode o comando NPM RUN SERVE
-3 - ENTRE NA PASTA FRONTEND
-4 - RODE O COMANDO NPM I 
-5 - APOS INSTALAR RODE O COMANDO NPM RUN START
-6 - PARA RODAR O STORYBOOK RODE O COMANDO NPM RUN STORYBOOK
+### 1 - ENTRE NA PASTA BACK
+### 2 - Rode o comando NPM RUN SERVE
+### 3 - ENTRE NA PASTA FRONTEND
+### 4 - RODE O COMANDO NPM I 
+### 5 - APOS INSTALAR RODE O COMANDO NPM RUN START
+### 6 - PARA RODAR O STORYBOOK RODE O COMANDO NPM RUN STORYBOOK
 
 Qualquer dúvida estou a disposição, podem me ligar abaixo:
 
