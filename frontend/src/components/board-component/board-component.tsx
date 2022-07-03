@@ -103,7 +103,7 @@ export const BoardComponent = () => {
     </AlertComponent>}
       <BoardComponentContainer>
         <BoardColumn>
-          <h3>New</h3>
+          <h3 style={{paddingBottom: '35px'}}>New</h3>
           <CardEditMode setIsEditMode={() => saveCard} newMode />
         </BoardColumn>
         <BoardColumn>
