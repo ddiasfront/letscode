@@ -1,5 +1,3 @@
-# Desafio Técnico - Frontend
-
 Para rodar o projeto, garanta estar com o docker instalado na sua máquina.
 
 Basta rodar o comando docker-compose up no diretório raiz
